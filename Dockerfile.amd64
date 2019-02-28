@@ -1,0 +1,13 @@
+FROM alpine:3.4
+RUN apk add --no-cache iptables ca-certificates && \
+	update-ca-certificates
+
+ENV PACKET_AUTH_TOKEN ""
+ENV PACKET_PROJECT_ID ""
+ENV PACKET_SEEK_TAG ""
+
+ADD packetnet-capsule-amd64 /packetnet-capsule
+ADD docker-run.sh /docker-run.sh
+RUN chmod +x docker-run.sh
+
+CMD ["/docker-run.sh"]
