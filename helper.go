@@ -64,8 +64,7 @@ func PullIPAddress(targetType string) (string, error) {
 			ip = ip.To4()
 			if ip == nil {
 				continue // not an ipv4 address
-			}
-			if strings.HasPrefix(ip.String(), "10.") == true {
+			} else if strings.HasPrefix(ip.String(), "10.") == true {
 				if targetType == "private" {
 					return ip.String(), nil
 				} else {
