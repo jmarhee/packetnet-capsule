@@ -40,11 +40,11 @@ PACKET_SEEK_TAG="capsule" \
 PACKET_PROJECT_ID=<id> ./packetnet-capsule
 ```
 
-or using the Docker images:
+or using the Docker images (on Docker Hub):
 
 ```
-jmarhee/packetnet-capsule.amd64
-jmarhee/packetnet-capsule.arm64
+[jmarhee/packetnet-capsule.amd64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.amd64)
+[jmarhee/packetnet-capsule.arm64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.arm64)
 ```
 as in:
 
@@ -57,6 +57,14 @@ docker run -d --restart=always --net=host --cap-add=NET_ADMIN \
 -e PUBLIC=$PUBLIC \
 -e CHECK_INTERVAL=300 jmarhee/packetnet-capsule.amd64:latest
 ```
+
+You can build the Docker images using the Makefile:
+
+```bash
+make TAG=$(date +%F%H%M%S) docker-arm64
+make TAG=$(date +%F%H%M%S) docker-amd64
+```
+which will build new binaries as well for the desired architecture.
 
 Example
 ---
