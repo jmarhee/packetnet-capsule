@@ -42,10 +42,10 @@ PACKET_PROJECT_ID=<id> ./packetnet-capsule
 
 or using the Docker images (on Docker Hub):
 
-```
 [jmarhee/packetnet-capsule.amd64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.amd64)
+
 [jmarhee/packetnet-capsule.arm64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.arm64)
-```
+
 as in:
 
 ```
