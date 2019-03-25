@@ -13,4 +13,4 @@ docker run -d --restart=always --net=host --cap-add=NET_ADMIN \
 -e PACKET_PROJECT_ID=$PACKET_PROJECT_ID \
 -e PACKET_SEEK_TAG=$PACKET_SEEK_TAG \
 -e PUBLIC=$PUBLIC \
--e CHECK_INTERVAL=300 jmarhee/packetnet-capsule.amd64:latest
+-e CHECK_INTERVAL=300 jmarhee/packetnet-fw-agent.amd64:latest
