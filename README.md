@@ -1,4 +1,4 @@
-packetnet-capsule
+packetnet-fw-agent
 ===
 
 Inspired by [droplan](https://github.com/tam7t/droplan), this package configures your [Packet](https://packet.com) host firewalls to limit traffic only to those hosts--either project-wide, or to a tag-based subset of hosts running the agent, which will periodically update from the Packet API.
@@ -12,7 +12,7 @@ Setup
 
 This package is supported on `arm64` and `amd64` servers. 
 
-`packetnet-capsule` requires 3 configuration variables:
+`packetnet-fw-agent` requires 3 configuration variables:
 
 `PACKET_AUTH_TOKEN`: a [read-only access key](https://www.packet.com/developers/changelog/project-only-api-keys/) in order to get data from the Packet API to keep firewalls up-to-date.
 
@@ -37,25 +37,25 @@ and then run:
 ```
 PACKET_AUTH_TOKEN=<ro token> \
 PACKET_SEEK_TAG="capsule" \
-PACKET_PROJECT_ID=<id> ./packetnet-capsule
+PACKET_PROJECT_ID=<id> ./packetnet-fw-agent
 ```
 
 or using the Docker images (on Docker Hub):
 
-[jmarhee/packetnet-capsule.amd64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.amd64)
+[jmarhee/packetnet-fw-agent.amd64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-fw-agent.amd64)
 
-[jmarhee/packetnet-capsule.arm64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-capsule.arm64)
+[jmarhee/packetnet-fw-agent.arm64](https://cloud.docker.com/repository/docker/jmarhee/packetnet-fw-agent.arm64)
 
 as in:
 
 ```
 docker run -d --restart=always --net=host --cap-add=NET_ADMIN \
---name packetnet-capsule \
+--name packetnet-fw-agent \
 -e PACKET_AUTH_TOKEN=$PACKET_AUTH_TOKEN \
 -e PACKET_PROJECT_ID=$PACKET_PROJECT_ID \
 -e PACKET_SEEK_TAG=$PACKET_SEEK_TAG \
 -e PUBLIC=$PUBLIC \
--e CHECK_INTERVAL=300 jmarhee/packetnet-capsule.amd64:latest
+-e CHECK_INTERVAL=300 jmarhee/packetnet-fw-agent.amd64:latest
 ```
 
 You can build the Docker images using the Makefile:
@@ -79,7 +79,7 @@ export TF_VAR_packet_public_network="true"
 terraform apply
 ```
 
-This example creates two hosts running `packetnet-capsule`, and a host that is tagged `capsule` to allow access to the firewalled hosts, which is are not accessible from outside of nodes within that tag.
+This example creates two hosts running `packetnet-fw-agent`, and a host that is tagged `capsule` to allow access to the firewalled hosts, which is are not accessible from outside of nodes within that tag.
 
 
 

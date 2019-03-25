@@ -6,7 +6,7 @@ ENV PACKET_AUTH_TOKEN ""
 ENV PACKET_PROJECT_ID ""
 ENV PACKET_SEEK_TAG ""
 
-ADD packetnet-capsule-amd64 /packetnet-capsule
+ADD packetnet-fw-agent-amd64 /packetnet-fw-agent
 ADD docker-run.sh /docker-run.sh
 RUN chmod +x docker-run.sh
 
