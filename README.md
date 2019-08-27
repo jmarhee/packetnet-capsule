@@ -5,7 +5,8 @@ packetnet-fw-agent
 
 Inspired by [droplan](https://github.com/tam7t/droplan).
 
-This package configures your [Packet](https://packet.com) host firewalls to limit traffic only to those hosts.
+This package configures your [Packet](https://packet.com) host firewalls.
+This will limit network traffic only to those hosts.
 
 Either project-wide, or to a tag-based subset of hosts running the agent, modes available.
 It will periodically update lists from the Packet API.
