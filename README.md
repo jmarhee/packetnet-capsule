@@ -3,11 +3,17 @@ packetnet-fw-agent
 
 [![Build Status](https://cloud.drone.io/api/badges/packet-labs/packetnet-fw-agent/status.svg)](https://cloud.drone.io/packet-labs/packetnet-fw-agent)
 
-Inspired by [droplan](https://github.com/tam7t/droplan), this package configures your [Packet](https://packet.com) host firewalls to limit traffic only to those hosts--either project-wide, or to a tag-based subset of hosts running the agent, which will periodically update from the Packet API.
+Inspired by [droplan](https://github.com/tam7t/droplan). 
+
+This package configures your [Packet](https://packet.com) host firewalls to limit traffic only to those hosts.
+
+Either project-wide, or to a tag-based subset of hosts running the agent, modes available.
+It will periodically update lists from the Packet API.
 
 Ideal uses might be highly-network dependent frameworks like [Kubernetes on Packet](https://github.com/jmarhee/packet-multiarch-k8s-terraform), which can be highly automated, and requires only limited network access between hosts.
 
-Running this package (i.e. via cronjob, or in a service) will update rules at regular intervals to ensure the rules are kept current with your specification (either project-wide, or limited to nodes with a hosts tag ID). 
+Running this package (i.e. via cronjob, or in a service) will update rules at regular intervals.
+This is to ensure the rules are kept current with your specification above.
 
 Setup
 ---
