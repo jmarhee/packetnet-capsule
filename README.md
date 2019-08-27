@@ -11,20 +11,19 @@ Either project-wide, or to a tag-based subset of hosts running the agent, modes 
 It will periodically update lists from the Packet API.
 
 Ideal uses might be highly-network dependent frameworks like:
+
 - [Kubernetes on Packet](https://github.com/jmarhee/packet-multiarch-k8s-terraform)
 
-Running this package (i.e. via cronjob, or in a service) will update rules at regular intervals.
-This is to ensure the rules are kept current with your specification above.
+Cronjobs can be used to update rules dynamically.
 
 Setup
 ---
 
-This package is supported on `arm64` and `amd64` servers. 
+This package is supported on `arm64` and `amd64` servers.
 
 `packetnet-fw-agent` requires 3 configuration variables:
 
-`PACKET_AUTH_TOKEN`: a [read-only access key](https://www.packet.com/developers/changelog/project-only-api-keys/) 
-Allows data read from the Packet API to keep firewalls up-to-date.
+`PACKET_AUTH_TOKEN`: [read-only key](https://www.packet.com/developers/changelog/project-only-api-keys/)
 
 `PACKET_PROJECT_ID`: the project the hosts will reside in.
 
@@ -91,4 +90,5 @@ export TF_VAR_packet_public_network="true"
 terraform apply
 ```
 
-This example creates two hosts running `packetnet-fw-agent`, and a host that is tagged `capsule` to allow access to the firewalled hosts, which is are not accessible from outside of nodes within that tag.
+This example creates two hosts running `packetnet-fw-agent`.
+The tagged node will be inaccessible from outside the network.
