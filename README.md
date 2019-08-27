@@ -29,14 +29,14 @@ Usage
 
 The package can be built for `arm64` and `amd64` hosts using the Makefile:
 
-```
+```bash
 make build
 make build-arm
 ```
 
 and then run:
 
-```
+```bash
 PACKET_AUTH_TOKEN=<ro token> \
 PACKET_SEEK_TAG="capsule" \
 PACKET_PROJECT_ID=<id> ./packetnet-fw-agent
@@ -50,7 +50,7 @@ or using the Docker images (on Docker Hub):
 
 as in:
 
-```
+```bash
 docker run -d --restart=always --net=host --cap-add=NET_ADMIN \
 --name packetnet-fw-agent \
 -e PACKET_AUTH_TOKEN=$PACKET_AUTH_TOKEN \
@@ -73,7 +73,7 @@ Example
 
 In `example/`, you can use Terraform to spin-up a test environment.
 
-```
+```bash
 export TF_VAR_auth_token=<your RW API key>
 export TF_VAR_packet_ro_token=<your RO API key>
 export TF_VAR_packet_public_network="true"
