@@ -3,14 +3,15 @@ packetnet-fw-agent
 
 [![Build Status](https://cloud.drone.io/api/badges/packet-labs/packetnet-fw-agent/status.svg)](https://cloud.drone.io/packet-labs/packetnet-fw-agent)
 
-Inspired by [droplan](https://github.com/tam7t/droplan). 
+Inspired by [droplan](https://github.com/tam7t/droplan).
 
 This package configures your [Packet](https://packet.com) host firewalls to limit traffic only to those hosts.
 
 Either project-wide, or to a tag-based subset of hosts running the agent, modes available.
 It will periodically update lists from the Packet API.
 
-Ideal uses might be highly-network dependent frameworks like [Kubernetes on Packet](https://github.com/jmarhee/packet-multiarch-k8s-terraform), which can be highly automated, and requires only limited network access between hosts.
+Ideal uses might be highly-network dependent frameworks like:
+- [Kubernetes on Packet](https://github.com/jmarhee/packet-multiarch-k8s-terraform)
 
 Running this package (i.e. via cronjob, or in a service) will update rules at regular intervals.
 This is to ensure the rules are kept current with your specification above.
@@ -22,13 +23,15 @@ This package is supported on `arm64` and `amd64` servers.
 
 `packetnet-fw-agent` requires 3 configuration variables:
 
-`PACKET_AUTH_TOKEN`: a [read-only access key](https://www.packet.com/developers/changelog/project-only-api-keys/) in order to get data from the Packet API to keep firewalls up-to-date.
+`PACKET_AUTH_TOKEN`: a [read-only access key](https://www.packet.com/developers/changelog/project-only-api-keys/) 
+Allows data read from the Packet API to keep firewalls up-to-date.
 
 `PACKET_PROJECT_ID`: the project the hosts will reside in.
 
 `PACKET_SEEK_TAG` (Optional): if set, hosts tagged with this value will be targetted.
 
-`PUBLIC` (Optional): if set, will include Public IP addresses in ruleset (meaning these hosts will be inaccessible, except from other hosts in the network). 
+`PUBLIC` (Optional): if set, will include Public IP addresses in ruleset.
+These hosts will be inaccessible, except from other hosts in the network).
 
 Usage
 ---
@@ -72,6 +75,7 @@ You can build the Docker images using the Makefile:
 make TAG=$(date +%F%H%M%S) docker-arm64
 make TAG=$(date +%F%H%M%S) docker-amd64
 ```
+
 which will build new binaries as well for the desired architecture.
 
 Example
@@ -88,6 +92,3 @@ terraform apply
 ```
 
 This example creates two hosts running `packetnet-fw-agent`, and a host that is tagged `capsule` to allow access to the firewalled hosts, which is are not accessible from outside of nodes within that tag.
-
-
-
