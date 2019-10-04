@@ -12,7 +12,7 @@ steps:
   - apk update
   - apk add npm curl jq
   - npm install -g markdownlint-cli
-  - echo '{"MD013": false}' | tee .markdownlint.json
+  - echo "{\"MD013\": false}" > .markdownlint.json
   - markdownlint -c .markdownlint.json README.md
   - if [  "$(curl -s -H "Authorization:token $GH_TOKEN" https://api.github.com/repos/jmarhee/github-repo-practices | jq .homepage)" = "null" ]; then echo "No homepage link set."; exit 1; fi   
   - if [  "$(curl -s -H "Authorization:token $GH_TOKEN" https://api.github.com/repos/jmarhee/github-repo-practices | jq .description)" = "null" ]; then echo "No description set."; exit 1; fi 
