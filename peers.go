@@ -5,7 +5,7 @@ import (
 	"github.com/packethost/packngo"
 )
 
-func seekTag(a string, list []string) bool {
+func SeekTag(a string, list []string) bool {
     for _, b := range list {
         if b == a {
             return true
@@ -29,7 +29,7 @@ func DeviceList(projectId string, ifaceType int, tag string) []string {
 	}
 
 	for _, d := range ds {
-		if seekTag(tag, d.Tags) || len(tag) == 0 {
+		if SeekTag(tag, d.Tags) || len(tag) == 0 {
 			deviceAddresses = append(deviceAddresses, string(d.Network[ifaceType].Address))
 		}
 	}
