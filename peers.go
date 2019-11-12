@@ -1,17 +1,17 @@
 package main
 
 import (
-	"log"
 	"github.com/packethost/packngo"
+	"log"
 )
 
 func SeekTag(a string, list []string) bool {
-    for _, b := range list {
-        if b == a {
-            return true
-        }
-    }
-    return false
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
 }
 
 func DeviceList(projectId string, ifaceType int, tag string) []string {
@@ -44,7 +44,7 @@ func PrivateDevices(projectId string, tag string) []string {
 }
 
 func PublicDevices(projectId string, tag string) []string {
-        devicePublicAddresses := DeviceList(projectId, 0, tag)
+	devicePublicAddresses := DeviceList(projectId, 0, tag)
 
-        return devicePublicAddresses
+	return devicePublicAddresses
 }

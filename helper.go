@@ -1,9 +1,9 @@
 package main
 
 import (
-	"strings"
-	"net"
 	"errors"
+	"net"
+	"strings"
 )
 
 // FindInterfaceName returns the network interface name of the provided local
@@ -86,17 +86,17 @@ func PullIPAddress(targetType string) (string, error) {
 func PrivateAddress() (string, error) {
 	privateIp, err := PullIPAddress("private")
 	if err != nil {
-                return "", errors.New("Cannot detect IP.")
+		return "", errors.New("Cannot detect IP.")
 	}
 
 	return privateIp, nil
 }
 
 func PublicAddress() (string, error) {
-        publicIp, err := PullIPAddress("public")
-        if err != nil {
-                return "", errors.New("Cannot detect IP.")
-        }
+	publicIp, err := PullIPAddress("public")
+	if err != nil {
+		return "", errors.New("Cannot detect IP.")
+	}
 
-        return publicIp, nil
+	return publicIp, nil
 }
