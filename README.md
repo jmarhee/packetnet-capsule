@@ -1,7 +1,7 @@
 packetnet-fw-agent
 ===
 
-[![Build Status](https://cloud.drone.io/api/badges/packet-labs/packetnet-fw-agent/status.svg)](https://cloud.drone.io/packet-labs/packetnet-fw-agent)
+[![Build Status](https://cloud.drone.io/api/badges/packet-labs/packetnet-fw-agent/status.svg)](https://cloud.drone.io/packet-labs/packetnet-fw-agent) ![](https://img.shields.io/badge/Stability-Experimental-red.svg)
 
 Inspired by [droplan](https://github.com/tam7t/droplan).
 
@@ -16,6 +16,8 @@ Ideal uses might be highly-network dependent frameworks like:
 - [Kubernetes on Packet](https://github.com/jmarhee/packet-multiarch-k8s-terraform)
 
 Cronjobs can be used to update rules dynamically.
+
+This repository is [Experimental](https://github.com/packethost/standards/blob/master/experimental-statement.md) meaning that it's based on untested ideas or techniques and not yet established or finalized or involves a radically new and innovative style! This means that support is best effort (at best!) and we strongly encourage you to NOT use this in production.
 
 Setup
 ---
